@@ -1,0 +1,91 @@
+// src/components/Links.jsx
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { links } from '../data/links'
+import * as LucideIcons from 'lucide-react'
+
+const Links = () => {
+  const linksRef = useRef(null)
+
+  useEffect(() => {
+    const tl = gsap.timeline()
+    
+    tl.fromTo('.link-item',
+      { 
+        opacity: 0, 
+        x: -50,
+        scale: 0.8
+      },
+      { 
+        opacity: 1, 
+        x: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'back.out(1.7)'
+      }
+    )
+  }, [])
+
+  const handleClick = (url) => {
+    // Animation on click
+    gsap.to('.link-item', {
+      scale: 0.95,
+      duration: 0.1,
+      yoyo: true,
+      repeat: 1,
+      ease: 'power2.inOut'
+    })
+    
+    setTimeout(() => {
+      window.open(url, '_blank', 'noopener,noreferrer')
+    }, 200)
+  }
+
+  const getIconComponent = (iconName) => {
+    const IconComponent = LucideIcons[iconName]
+    return IconComponent ? <IconComponent size={20} /> : <LucideIcons.Link size={20} />
+  }
+
+  return (
+    <div ref={linksRef} className="space-y-4 mb-8">
+      {links.map((link, index) => (
+        <button
+          key={link.id}
+          className="link-item w-full group relative"
+          onClick={() => handleClick(link.url)}
+        >
+          {/* Background Glow Effect */}
+          <div className={`absolute inset-0 bg-gradient-to-r ${link.color} rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300`}></div>
+          
+          {/* Main Link Card */}
+          <div className="relative glass-dark rounded-2xl p-4 border border-white/10 group-hover:border-white/30 transition-all duration-300 group-hover:scale-105 transform">
+            <div className="flex items-center space-x-4">
+              {/* Icon */}
+              <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-r ${link.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300`}>
+                {getIconComponent(link.icon)}
+              </div>
+              
+              {/* Content */}
+              <div className="flex-1 text-left">
+                <h3 className="text-white font-semibold group-hover:text-purple-200 transition-colors duration-300">
+                  {link.title}
+                </h3>
+                <p className="text-white/60 text-sm mt-1">
+                  {link.description}
+                </p>
+              </div>
+              
+              {/* Arrow Icon */}
+              <div className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
+                <LucideIcons.ArrowUpRight size={16} />
+              </div>
+            </div>
+          </div>
+        </button>
+      ))}
+    </div>
+  )
+}
+
+export default Links
