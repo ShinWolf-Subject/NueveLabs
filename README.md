@@ -17,7 +17,7 @@ npm run dev
 
 Server jalan di:
 ```
-http://localhost:5173   # Default Vite
+ > http://localhost:5173   # Default Vite
 ```
 
 ## ⚠️
