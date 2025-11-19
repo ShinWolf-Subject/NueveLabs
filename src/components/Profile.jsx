@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ArrowDown } from 'lucide-react'
+import rikka from '/rikka.gif'
 
 const Profile = () => {
   const profileRef = useRef(null)
@@ -29,7 +30,7 @@ const Profile = () => {
             ref={imageRef}
             className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center text-white text-lg font-bold backdrop-blur-sm"
           >
-            <img src="https://ninedn.vercel.app/NanimeID-PFPs/img/Rika.gif" alt="PFP" className="w-full h-full object-cover rounded-full" />
+            <img src={rikka} alt="PFP" className="w-full h-full object-cover rounded-full" />
           </div>
         </div>
         {/* Online Status Indicator */}
