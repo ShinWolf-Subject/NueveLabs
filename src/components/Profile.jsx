@@ -44,7 +44,7 @@ const Profile = () => {
       {/* Bio */}
       <div className="glass-dark rounded-2xl p-4 mb-4">
         <p className="text-white/70 text-sm leading-relaxed">
-          Hello, I\'m NineTwelve!! 🔥 <br />
+          Hello, I'm Nine!! 🔥 <br />
           Collecting <strong className="text-white">coding tips</strong> and also
           <strong className="text-white"> sharing open-source projects</strong>. <br />
           Check out my social media and services below ✨
