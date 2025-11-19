@@ -24,7 +24,7 @@ const Profile = () => {
     <div ref={profileRef} className="text-center mb-8 animate-in">
       {/* Profile Image */}
      <div className="relative inline-block mb-4">
-        <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-r from-purple-400 to-blue-500 p-1 animate-glow">
+        <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-r from-purple-500/80 to-pink-500 p-1 animate-glow">
           <div
             ref={imageRef}
             className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center text-white text-lg font-bold backdrop-blur-sm"
@@ -43,7 +43,7 @@ const Profile = () => {
       {/* Bio */}
       <div className="glass-dark rounded-2xl p-4 mb-4">
         <p className="text-white/70 text-sm leading-relaxed">
-          Hello, I'm Nine!! 🎬 <br />
+          Hello, I\'m NineTwelve!! 🔥 <br />
           Collecting <strong className="text-white">coding tips</strong> and also
           <strong className="text-white"> sharing open-source projects</strong>. <br />
           Check out my social media and services below ✨
